@@ -1,0 +1,36 @@
+﻿@model IEnumerable<Shop>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <td>Shop</td>
+            <td>Address</td>
+            <td>Schedule</td>
+            <td>Products</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Address</td>
+                <td>@item.Schedule</td>
+                <td><a asp-action="Products" asp-route-id="@item.Id">Products</a></td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+
+@section Scripts
+{
+    <script>
+        $("tbody tr").hover(function () {
+            $(this).toggleClass("selectedRow");
+        })
+    </script>
+}

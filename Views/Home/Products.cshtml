@@ -1,0 +1,33 @@
+﻿@model Shop
+@{
+    ViewData["Title"] = "Products";
+}
+
+<h1>@Model.Name</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <td>Product</td>
+            <td>Description</td>
+        </tr>
+    </thead>
+    <tboby>
+        @foreach (var item in Model.Products)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Description</td>
+            </tr>
+        }
+    </tboby>
+</table>
+
+@section Scripts
+{
+    <script>
+        $("tbody tr").hover(function () {
+            $(this).toggleClass("selectedRow");
+        })
+    </script>
+}
